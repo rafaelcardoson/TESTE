@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Produtos Cadastro";
+}
+
+
+<style>
+    #metodo {
+        width: 100%;
+        height: 30px;
+    }
+
+    #principal {
+        width: 100%;
+    }
+
+    .btn-custom-size {
+        width: 100%;
+    }
+</style>
+
+<form method="post" class="row g-3">
+
+    <h3>Produtos</h3>
+    
+    <table>
+        <div class="col-md-2">
+            <label for="lblFornecedorProduto" style="font:normal">Fornecedor: </label>
+            <select id="opFornecedorProduto" name="opFornecedorProduto" class="form-select">
+                <option selected>Selecione...</option>
+                <option>...</option>
+                <option>Babolat</option>
+                <option>TecniFibre</option>
+                <option>Robin Soderling</option>
+            </select>
+        </div>
+        <div class="col-md-7">
+            <label for="lblNomeProduto" style="font:normal">Nome: </label>
+            <input type="text" id="txtNomeProduto" name="txtNomeProduto" class="form-control" maxlength="100" />
+        </div>
+    </table>
+
+
+    <table>
+        <div class="container mt4-">
+            <div class="row align-items-center ">
+                <div class="col-md-5">
+                    <label for="txtCodBarrasProduto" style="font:normal">Código de Barras:</label>
+                    <input type="text" id="txtCodBarrasProduto" name="txtCodBarrasProduto" class="form-control" maxlength="50" />
+                </div> 
+                
+                <div class="col-md-1" >
+                    <label></label>
+                    <input type="button" class="btn btn-danger btn-custom-size" value="Scanear" />
+                </div>   
+                
+                <div class="col-md-3">
+                    <label for="txtSKUProduto" style="font:normal">SKU:</label>
+                    <input type="text" id="txtSKUProduto" name="txtSKUProduto" class="form-control" maxlength="50" />
+                </div>                
+            </div>
+        </div>
+    </table>
+
+    <table>
+        <div class="col-md-1">
+            <label for="lblPesoProduto" style="font:normal">Peso:</label>
+            <input type="text" id="txtPesoProduto" name="txtPesoProduto" class="form-control" placeholder="Gramas" />
+        </div>
+
+        <div class="col-md-1">
+            <label for="lblComprimentoProduto" style="font:normal">Comp:</label>
+            <input type="text" id="txtComprimentoProduto" name="txtComprimentoProduto" class="form-control" placeholder="mm" />
+        </div>
+
+        <div class="col-md-1">
+            <label for="lblLarguraProduto" style="font:normal">Largura:</label>
+            <input type="text" id="txtLarguraProduto" name="txtLarguraProduto" class="form-control" placeholder="mm" />
+        </div>
+
+        <div class="col-md-1">
+            <label for="lblAlturaProduto" style="font:normal">Altura:</label>
+            <input type="text" id="txtAlturaProduto" name="txtAlturaProduto" class="form-control" placeholder="mm" />
+        </div>
+
+        <div class="col-md-2">
+            <label for="lblCorProduto" style="font:normal">Cor:</label>
+            <select id="opCorProduto" name="opCorProduto" class="form-select">
+                <option selected>Selecione...</option>
+                <option>...</option>
+                <option>Azul</option>
+                <option>Branco</option>
+                <option>Preto</option>
+            </select>
+        </div>
+    </table>
+
+    <table>        
+        <div class="col-md-9">
+            <label for="lblDescricaoProduto" style="font:normal">Descrição: </label>
+            <textarea class="form-control" id="txtDescricaoProduto" name="txtDescricaoProduto" rows="5"></textarea>
+        </div>
+    </table>
+
+        <div>
+        @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-dark" })
+            <input type="submit" class="btn btn-secondary" value="Salvar" />            
+        </div>
+</form>

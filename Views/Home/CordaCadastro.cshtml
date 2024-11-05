@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Corda Cadastro";
+}
+
+
+<form method="post" class="row g-3">
+
+    <h3>Cordas</h3>
+
+        <table>
+            <div class="col-md-2">            
+                <label for="lblMarcaCorda" style="font:normal">Marca Corda: </label>
+                <select id="opMarcaCorda" name="opMarcaCorda" class="form-select">
+                    <option selected>Selecione...</option>
+                    <option>...</option>
+                </select>
+            </div>
+                <div class="col-md-4">
+                <label for="lblModeloCorda" style="font:normal">Modelo Corda: </label>
+                <input type="text" id="txtModeloCorda" name="txtModeloCorda" class="form-control" />
+            </div>
+            <div class="col-md-1">
+                <label for="lblEspessuraCorda" style="font:normal">Espessura: </label>
+                <input type="text" id="txtEspessuraCorda" name="txtEspessuraCorda" class="form-control" placeholder="mm" />
+            </div>
+            <div class="col-md-1">
+                <label for="lblGaugeCorda" style="font:normal">Gauge: </label>
+                <input type="text" id="txtGaugeCorda" name="txtGaugeCorda" class="form-control" />
+            </div>
+        </table>
+
+        <table>
+            <div class="col-md-2">
+                <label for="lblTipoCorda" style="font:normal">Tipo: </label>
+                <input type="text" id="txtTipoCorda" name="txtTipoCorda" class="form-control" />
+            </div>
+            <div class="col-md-2">
+                <label for="lblMaterialCorda" style="font:normal">Material: </label>
+                <input type="text" id="txtMaterialCorda" name="txtMaterialCorda" class="form-control" />
+            </div>
+        </table>
+
+    <table>
+        <div class="col-md-8">
+            <label for="lblDescricaoCorda" style="font:normal">Descrição: </label>
+            <textarea class="form-control" id="txtDescricaoCorda" name="txtDescricaoCorda" rows="5"></textarea>
+        </div>
+    </table>
+
+
+
+
+    <div>
+        @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-dark" })
+        <input type="submit" class="btn btn-secondary" value="Salvar" />
+    </div>
+
+</form>

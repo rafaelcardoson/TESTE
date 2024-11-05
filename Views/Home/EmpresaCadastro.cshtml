@@ -1,0 +1,192 @@
+﻿@{
+    ViewBag.Title = "Empresa Cadastro";
+}
+
+<style>
+    #metodo {
+        width: 100%;
+        height: 30px;
+    }
+
+    #principal {
+        width: 100%;
+    }
+</style>
+
+<form method="post" class="row g-3">
+
+    <h3>Empresa</h3>
+
+    <table>
+        <table>
+            <div class="col-md-2">
+                <label for="lblCNPJEmpresa" style="font:normal">CNPJ: </label>
+                <input type="text" id="txtCNPJEmpresa" name="txtCNPJEmpresa" class="form-control" maxlength="18" oninput="mascaraCNPJ(this)" required />
+            </div>
+
+            <div class="col-md-2">
+                <label for="lblIncEstadualEmpresa" style="font:normal">Inscrição Estadual: </label>
+                <input type="text" id="txtIncEstadualEmpresa" name="txtIncEstadualEmpresa" class="form-control" maxlength="15" oninput="mascaraIE(this)" />
+            </div>
+        
+            <div class="col-md-4">
+                <label for="lblRazaoSocialEmpresa" style="font:normal">Razão Social: </label>
+                <input type="text" id="txtRazaoSocialEmpresa" name="txtRazaoSocialEmpresa" class="form-control" maxlength="100" required />
+            </div>    
+
+            <div class="col-md-4">
+                <label for="lblNomeEmpresa" style="font:normal">Nome Fantasia: </label>
+                <input type="text" id="txtNomeEmpresa" name="txtNomeEmpresa" class="form-control" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()" maxlength="100" required /> @* text-transform: uppercase mascara o campo | oninput="this.value = this.value.toUpperCase()" grava na tabela em maiusculo  *@
+            </div>
+
+            <div class="col-md-1">
+                <label for="lblVctoDASEmpresa" style="font:normal">Vcto DAS: </label>
+                <input type="text" id="txtDASEmpresa" name="txtDASEmpresa" class="form-control" />
+            </div>
+
+            <div class="col-md-1">
+                <label for="lblValorDASEmpresa" style="font:normal">Valor DAS: </label>
+                <input type="text" id="txtValorDASEmpresa" name="txtValorDASEmpresa" class="form-control" />
+            </div>
+
+            <div class="col-md-1">
+                <label for="lblSiteDASEmpresa" style="font:normal">Site DAS: </label>
+                <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/Aplicacoes/ATSPO/pgmei.app/Identificacao" role="button" class="btn btn-link" target="_blank">Link</a>                
+            </div>
+        </table>
+
+        <table>
+            <div class="col-md-2">
+                <label for="lblCEPEmpresa" style="font:normal">CEP: </label>
+                <input type="text" id="txtCEPEmpresa" name="txtCEPEmpresa" class="form-control" maxlength="9" oninput="mascaraCEP(this)" required />
+            </div>
+
+            <div class="col-md-5">  
+                <label for="lblEnderecoEmpresa" style="font:normal">Endereço: </label>
+                <input type="text" id="txtEnderecoEmpresa" name="txtEnderecoEmpresa" class="form-control" maxlength="100" disabled />
+            </div>
+
+            <div class="col-md-1">
+                <label for="lblNumeroEmpresa" style="font:normal">Número: </label>
+                <input type="text" id="txtNumeroEmpresa" name="txtNumeroEmpresa" class="form-control" maxlength="10" required />
+            </div>
+
+            <div class="col-md-4">
+                <label for="lblComplementoEmpresa" style="font:normal">Complemento: </label>
+                <input type="text" id="txtComplementoEmpresa" name="txtComplementoEmpresa" class="form-control" maxlength="50" />
+            </div>
+
+            <div class="col-md-3">
+                <label for="lblBairroEmpresa" style="font:normal">Bairro: </label>
+                <input type="text" id="txtBairroEmpresa" name="txtBairroEmpresa" class="form-control" maxlength="50" disabled />
+            </div>
+
+            <div class="col-md-3">
+                <label for="lblCidadeEmpresa" style="font:normal">Cidade: </label>
+                <input type="text" id="txtCidadeEmpresa" name="txtCidadeEmpresa" class="form-control" maxlength="50" disabled />
+            </div>
+    
+            <div class="col-md-1">
+                <label for="lblUFEmpresa" style="font:normal">UF: </label>
+                <select id="opUFEmpresa" name="opUFEmpresa" class="form-select">
+                    <option selected>Selecione...</option>
+                    <option>...</option>
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <label for="lblTelefone1Empresa" style="font:normal">DDD + Telefone: </label>
+                <input type="text" id="txtTelefone1Empresa" name="txtTelefone1Empresa" class="form-control" maxlength="14" oninput="mascaraTelefone(this)" />
+            </div>
+
+            <div class="col-md-2">
+                <label for="lblTelefone2Empresa" style="font:normal">DDD + Celular: </label>
+                <input type="text" id="txtTelefone2Empresa" name="txtTelefone2Empresa" class="form-control" maxlength="15" oninput="mascaraCelular(this)" />
+            </div>
+
+        </table>
+
+        <table>
+            <div class="col-md-6">
+                <label for="lblemail1Empresa" style="font:normal">Email: </label>
+                <input type="text" id="txtEmail1Empresa" name="txtEmail1Empresa" class="form-control" maxlength="100" />
+            </div>
+
+            <div class="col-md-6">
+                <label for="lblSiteEmpresa" style="font:normal">Site: </label>
+                <input type="text" id="txtSiteEmpresa" name="txtSiteEmpresa" class="form-control" maxlength="200" />
+            </div>
+        </table>
+
+        <table>
+            <div class="col-md-4">
+                <label for="lblLinkedinEmpresa" style="font:normal">LinkedIn: </label>
+                <input type="text" id="txtLinkedinEmpresa" name="txtLinkedinEmpresa" class="form-control" maxlength="50" />
+            </div>
+
+            <div class="col-md-4">
+                <label for="lblinstagramEmpresa" style="font:normal">Instagram: </label>
+                <input type="text" id="txtInstagramEmpresa" name="txtInstagramEmpresa" class="form-control" maxlength="50" />
+             </div>
+
+            <div class="col-md-4">
+                <label for="lblFacebookEmpresa" style="font:normal">Facebook: </label>
+                <input type="text" id="txtFacebookEmpresa" name="txtFacebookEmpresa" class="form-control" maxlength="50" />
+            </div>
+        </table>
+
+            <div>
+                @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-dark" })
+                <input type="submit" class="btn btn-secondary" value="Salvar" />        
+            </div>
+
+    </table>
+</form>
+
+
+
+
+
+
+
+@* SCRIPTS JAVA PARA CONTROLE DE MASCARAS DOS CAMPOS *@
+
+
+<script>
+    function mascaraCNPJ(cnpj) {
+        cnpj.value = cnpj.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/^(\d{2})(\d)/, '$1.$2') // Adiciona ponto após os dois primeiros dígitos
+            .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3') // Adiciona ponto após o quinto dígito
+            .replace(/\.(\d{3})(\d)/, '.$1/$2') // Adiciona barra após o oitavo dígito
+            .replace(/(\d{4})(\d)/, '$1-$2'); // Adiciona traço após o décimo segundo dígito
+    }
+
+    function mascaraIE(ie) {
+        ie.value = ie.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/^(\d{3})(\d)/, '$1.$2') // Adiciona ponto após os três primeiros dígitos
+            .replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3') // Adiciona ponto após o sexto dígito
+            .replace(/\.(\d{3})(\d)/, '.$1.$2'); // Adiciona ponto após o nono dígito
+    }
+
+    function mascaraCelular(celular) {
+        celular.value = celular.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/^(\d{2})(\d)/, '($1) $2') // Adiciona parênteses em torno do código de área
+            .replace(/(\d{5})(\d)/, '$1-$2'); // Adiciona traço após o quinto dígito
+    }
+
+    function mascaraTelefone(telefone) {
+        telefone.value = telefone.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/^(\d{2})(\d)/, '($1) $2') // Adiciona parênteses em torno do código de área
+            .replace(/(\d{4})(\d)/, '$1-$2'); // Adiciona traço após o quarto dígito
+    }
+
+    function mascaraCEP(cep) {
+        cep.value = cep.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/(\d{5})(\d)/, '$1-$2'); // Adiciona traço após o quinto dígito
+    }
+</script>

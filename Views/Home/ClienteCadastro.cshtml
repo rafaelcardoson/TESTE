@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "Cliente Cadastro";
+}
+
+
+<style>
+    #metodo {
+        width: 100%;
+        height: 30px;
+    }
+
+    #principal {
+        width: 100%;
+    }
+
+    .btn-custom-size {
+        width: 100%;
+    }
+</style>
+
+<form method="post" class="row g-3">
+
+    <h3>Cliente</h3>
+
+    <table>
+        <div class="col-md-6">
+            <label for="lblNome" style="font:normal">Nome: </label>
+            <input type="text" id="txtNome" name="txtNome" class="form-control" required />
+        </div>
+        <div class="col-md-2">
+            <label for="lblCPF" style="font:normal">CPF: </label>
+            <input type="text" id="txtCPF" name="txtCPF" class="form-control" required />
+        </div>
+        <div class="col-md-2">
+            <label for="dtNascimento" style="font:normal">Data Nascimento: </label>
+            <input type="date" id="dtNascimento" name="dtNascimento" class="form-control" required />
+        </div>        
+    </table>
+
+    <table>
+        <div class="col-md-2">
+            <label for="lblCEP" style="font:normal">CEP: </label>
+            <input type="text" id="txtCEP" name="txtCEP" class="form-control" required />
+        </div>
+
+        <div class="col-md-5">
+            <label for="lblEndereco" style="font:normal">Endereço: </label>
+            <input type="text" id="txtEndereco" name="txtEndereco" class="form-control" />
+        </div>
+
+        <div class="col-md-1">
+            <label for="lblNumero" style="font:normal">Número: </label>
+            <input type="text" id="txtNumero" name="txtNumero" class="form-control" />
+        </div>
+
+        <div class="col-md-2">
+            <label for="lblComplemento" style="font:normal">Complemento: </label>
+            <input type="text" id="txtComplemento" name="txtComplemento" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            <label for="lblBairro" style="font:normal">Bairro: </label>
+            <input type="text" id="txtBairro" name="txtBairro" class="form-control" />
+        </div>
+
+        <div class="col-md-3">
+            <label for="lblCidade" style="font:normal">Cidade: </label>
+            <input type="text" id="txtCidade" name="txtCidade" class="form-control" />
+        </div>
+
+        <div class="col-md-1">
+            <label for="lblUF" style="font:normal">UF: </label>
+            <select id="UF" class="form-select">
+                <option selected>Selecione...</option>
+                <option>...</option>
+            </select>
+        </div>
+
+        <div class="col-md-5">
+        </div>
+    </table>
+
+    <table>
+        <div class="col-md-2">
+            <label for="lblTelefone1" style="font:normal">Telefone: </label>
+            <input type="text" id="txtTelefone1" name="txtTelefone1" class="form-control" />
+            <input type="checkbox" id="chkWhats1" name="chkWhats1" class="form-check-input" /> <label for="LblWhats1" style="font:normal">WhatsApp? </label>
+        </div>
+
+        <div class="col-md-2">
+            <label for="lblTelefone2" style="font:normal">Telefone: </label>
+            <input type="text" id="txtTelefone2" name="txtTelefone2" class="form-control" />
+            <input type="checkbox" id="chkWhats2" name="chkWhats2" class="form-check-input" /> <label for="LblWhats1" style="font:normal">WhatsApp? </label>
+        </div>
+
+        <div class="col-md-6">
+            <label for="lblemail1" style="font:normal">Email: </label>
+            <input type="text" id="txtEmail1" name="txtEmail1" class="form-control" />
+        </div>
+    </table>
+
+    <table>
+        <div class="col-md-4">
+            <label for="lblinstagram" style="font:normal">Instagram: </label>
+            <input type="text" id="txtInstagram" name="txtInstagram" class="form-control" />
+        </div>
+
+        <div class="col-md-4">
+            <label for="lblFacebook" style="font:normal">Facebook: </label>
+            <input type="text" id="txtFacebook" name="txtFacebook" class="form-control" />
+        </div>
+    </table>
+
+    <table>
+        <div class="col-md-4">
+            <label for="lblEsportes" style="font:normal">Interesse em: </label>
+        </div>
+        <div>
+            <input type="checkbox" id="chkEsportes1" name="chkEsportes1" class="form-check-input" /> <label for="LblWhats1" style="font:normal">Tennis </label> 
+            <br />
+            <input type="checkbox" id="chkEsportes2" name="chkEsportes2" class="form-check-input" /> <label for="LblWhats1" style="font:normal">Beach Tennis </label> 
+            <br />
+            <input type="checkbox" id="chkEsportes3" name="chkEsportes3" class="form-check-input" /> <label for="LblWhats1" style="font:normal">Roupas Esportivas </label>       
+            <br />
+            <input type="checkbox" id="chkEsportes4" name="chkEsportes4" class="form-check-input" /> <label for="LblWhats1" style="font:normal">Calçados Esportivos </label>
+        </div>
+    </table>
+
+    <div>
+        <br />
+        @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-dark" })
+        <input type="submit" class="btn btn-secondary" value="Salvar" />        
+    </div>
+</form>

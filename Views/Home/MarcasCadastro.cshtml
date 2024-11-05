@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Marca Cadastro";
+}
+
+
+<form method="post" class="row g-3">
+
+    <h3>Marcas</h3>
+
+    <table>
+        <div class="col-md-4">
+            <label for="lblMarca" style="font:normal">Nome Marca: </label>
+            <input type="text" id="txtModeloCorda" name="txtModeloCorda" class="form-control" />
+        </div>
+    </table>
+    <table>
+        <div class="col-md-8">
+            <label for="lblDescricaoCorda" style="font:normal">Descrição: </label>
+            <textarea class="form-control" id="txtDescricaoCorda" name="txtDescricaoCorda" rows="5"></textarea>
+        </div>
+    </table>
+
+
+    <div>
+        @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-dark" })
+        <input type="submit" class="btn btn-secondary" value="Salvar" />
+    </div>
+
+</form>

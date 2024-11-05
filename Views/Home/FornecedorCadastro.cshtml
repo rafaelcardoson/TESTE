@@ -1,0 +1,228 @@
+﻿@{
+    ViewBag.Title = "Fornecedores Cadastro";
+}
+
+<style>
+    #metodo {
+        width: 100%;
+        height: 30px;
+    }
+
+    #principal {
+        width: 100%;
+    }
+
+    .btn-custom-size {
+        width: 100%;
+    }
+</style>
+
+<form method="post" class="row g-3">
+
+    <h3>Fornecedores</h3>
+
+@*     <table>
+        <div class="col-md-2">
+            <label for="lblNomeMarca" style="font:normal">Nome Marca: </label>
+            <input type="text" id="txtNome" name="txtNome" class="form-control" style="text-transform: uppercase;" oninput="this.value = this.value.toUpperCase()"  required/>
+        </div> *@
+    <table>
+        <div class="col-md-4">
+            <label for="lblDistribuidora" style="font:normal">Nome Distribuidora: </label>
+            <input type="text" id="txtDistribuidora" name="txtDistribuidora" class="form-control" required/>
+        </div>
+
+        <div class="col-md-2">
+            <label for="lblCNPJFornecedor" style="font:normal">CNPJ: </label>
+            <input type="text" id="txtCNPJFornecedor" name="txtCPJFornecedor" class="form-control" maxlength="18" oninput="mascaraCNPJ(this)" required />
+        </div>
+
+        <div class="col-md-2">
+            <label for="lblIncEstadualFornecedor" style="font:normal">Inscrição Estadual: </label>
+            <input type="text" id="txtIncEstadualFornecedor" name="txtIncEstadualFornecedor" class="form-control" maxlength="15" oninput="mascaraIE(this)" />
+        </div>
+    </table>
+
+    <table>
+        <div class="col-md-2">
+            <label for="lblCEPFornecedor" style="font:normal">CEP: </label>
+            <input type="text" id="txtCEPFornecedor" name="txtCEPFornecedor" class="form-control" maxlength="9" oninput="mascaraCEP(this)" required />
+        </div>
+
+        <div class="col-md-5">
+            <label for="lblEnderecoFornecedor" style="font:normal">Endereço: </label>
+            <input type="text" id="txtEnderecoFornecedor" name="txtEnderecoFornecedor" class="form-control" maxlength="100" disabled />
+        </div>
+
+        <div class="col-md-1">
+            <label for="lblNumeroFornecedor" style="font:normal">Número: </label>
+            <input type="text" id="txtNumeroFornecedor" name="txtNumeroFornecedor" class="form-control" maxlength="10" />
+        </div>        
+    </table>
+
+    <table>
+        <div class="col-md-3">
+            <label for="lblComplementoFornecedor" style="font:normal">Complemento: </label>
+            <input type="text" id="txtComplementoFornecedor" name="txtComplementoFornecedor" class="form-control" maxlength="50" />
+        </div>
+
+        <div class="col-md-2">
+            <label for="lblBairroFornecedor" style="font:normal">Bairro: </label>
+            <input type="text" id="txtBairroFornecedor" name="txtBairroFornecedor" class="form-control" maxlength="50" disabled />
+        </div>
+
+        <div class="col-md-2">
+            <label for="lblCidadeFornecedor" style="font:normal">Cidade: </label>
+            <input type="text" id="txtCidadeFornecedor" name="txtCidadeFornecedor" class="form-control" maxlength="50" disabled />
+        </div>
+
+        <div class="col-md-1">
+            <label for="lblUFFornecedor" style="font:normal">UF: </label>
+            <select id="opUFFornecedor" name="opUFFornecedor" class="form-select" disabled >
+                <option selected>Selecione...</option>
+                <option>...</option>
+            </select>
+        </div>
+
+    </table>
+
+    <table>
+        <div class="col-md-4">
+            <label for="lblContatoFornecedor" style="font:normal">Representante Comercial: </label>
+            <input type="text" id="txtContatoFornecedor" name="txtContatoFornecedor" class="form-control" maxlength="50" />
+        </div>
+
+        <div class="col-md-2">
+            <label for="lblCelular1Fornecedor" style="font:normal">Celular: </label>
+            <input type="text" id="txtCelular1Fornecedor" name="txtCelular1Fornecedor" class="form-control" maxlength="15" oninput="mascaraCelular(this)"  required/>
+            <input type="checkbox" id="chkWhats1Fornecedor" name="chkWhats1Fornecedor" class="form-check-input" /> 
+            <label for="LblWhats1Fornecedor" style="font:normal">WhatsApp? </label>
+        </div>
+
+@*         <div class="col-md-2">
+            <label for="lblCelular2Fornecedor" style="font:normal">Celular: </label>
+            <input type="text" id="txtCelular2Fornecedor" name="txtCelular2Fornecedor" class="form-control" maxlength="15" oninput="mascaraCelular(this)" />
+            <input type="checkbox" id="chkWhats2Fornecedor" name="chkWhats2Fornecedor" class="form-check-input" />
+            <label for="LblWhats2Fornecedor" style="font:normal">WhatsApp? </label>
+        </div> *@
+
+        <div class="col-md-2">
+            <label for="lblTelefone1Fornecedor" style="font:normal">Telefone: </label>
+            <input type="text" id="txtTelefone1Fornecedor" name="txtTelefone1Fornecedor" class="form-control" maxlength="14" oninput="mascaraTelefone(this)" />
+        </div>
+    </table>
+
+    <table>
+        <div class="col-md-4">
+            <label for="lblEmail1Fornecedor" style="font:normal">Email: </label>
+            <input type="text" id="txtEmail1Fornecedor" name="txtEmail1Fornecedor" class="form-control" maxlength="100"/>
+        </div>
+
+        <div class="col-md-4">
+            <label for="lblEmail2Fornecedor" style="font:normal">Email: </label>
+            <input type="text" id="txtEmail2Fornecedor" name="txtEmail2Fornecedor" class="form-control" maxlength="100" />
+        </div>
+    </table>
+
+    <table>
+        <div class="col-md-4">
+            <label for="lblSiteFornecedor" style="font:normal">Site: </label>
+            <input type="text" id="txtSiteFornecedor" name="txtSiteFornecedor" class="form-control" maxlength="100" />
+        </div>
+
+        <div class="col-md-4">
+            <label for="lblinstagramFornecedor" style="font:normal">Instagram: </label>
+            <input type="text" id="txtInstagramFornecedor" name="txtInstagramFornecedor" class="form-control" maxlength="50" />
+        </div>
+    </table>
+
+    <table>
+        <div class="col-md-2">
+            <label for="lblMarcaFornecedor" style="font:normal">Marca: </label>
+            <select id="opMarcaFornecedor" name="opMMarcaFornecedor" class="form-select">
+                <option selected>Selecione...</option>
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-md-1">
+            <label></label>
+            <br />
+            <input type="submit" class="btn btn-success" value="+" />
+        </div>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div>
+        @Html.ActionLink("Voltar", "Index", "Home", null, new { @class = "btn btn-dark" })
+        <input type="submit" class="btn btn-secondary" value="Salvar" />
+    </div>
+
+</form>
+
+
+
+
+<script>
+    function mascaraCNPJ(cnpj) {
+        cnpj.value = cnpj.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/^(\d{2})(\d)/, '$1.$2') // Adiciona ponto após os dois primeiros dígitos
+            .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3') // Adiciona ponto após o quinto dígito
+            .replace(/\.(\d{3})(\d)/, '.$1/$2') // Adiciona barra após o oitavo dígito
+            .replace(/(\d{4})(\d)/, '$1-$2'); // Adiciona traço após o décimo segundo dígito
+    }
+
+    function mascaraIE(ie) {
+        ie.value = ie.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/^(\d{3})(\d)/, '$1.$2') // Adiciona ponto após os três primeiros dígitos
+            .replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3') // Adiciona ponto após o sexto dígito
+            .replace(/\.(\d{3})(\d)/, '.$1.$2'); // Adiciona ponto após o nono dígito
+    }
+
+    function mascaraCEP(cep) {
+        cep.value = cep.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/(\d{5})(\d)/, '$1-$2'); // Adiciona traço após o quinto dígito
+    }
+
+    function mascaraCelular(celular) {
+        celular.value = celular.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/^(\d{2})(\d)/, '($1) $2') // Adiciona parênteses em torno do código de área
+            .replace(/(\d{5})(\d)/, '$1-$2'); // Adiciona traço após o quinto dígito
+    }
+
+    function mascaraTelefone(telefone) {
+        telefone.value = telefone.value
+            .replace(/\D/g, '') // Remove todos os caracteres não numéricos
+            .replace(/^(\d{2})(\d)/, '($1) $2') // Adiciona parênteses em torno do código de área
+            .replace(/(\d{4})(\d)/, '$1-$2'); // Adiciona traço após o quarto dígito
+    }
+</script>
